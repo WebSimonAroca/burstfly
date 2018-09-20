@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('base');
-});
-
+Route::get('/', 'PageController@index');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
