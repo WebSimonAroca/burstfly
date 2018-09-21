@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'PostController@index');
-Route::get('/post', 'PostController@show');
+Route::get('/post/{id}', ['as' => 'posts.show', 'uses' => 'PostController@show']);
 
 
 Route::group(['prefix' => 'admin'], function () {
