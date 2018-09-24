@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', 'PostController@index');
-Route::get('/post/{id}', ['as' => 'posts.show', 'uses' => 'PostController@show']);
+
+Route::get('categorie/{slug}','Categories\CategoriesController@show')->name('categorie.show');
 
 
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+
+Route::get('/', function () {
+    return view('welcome');
 });
+
+Route::get('/{slug}','Portfolio\PortfolioController@show')->name('portfolio.show');
+Route::get('download/{slug}','DownloadController@download')->name('download');
+Route::any('commentaire/create','CommentairesController@create')->name('commentaire.create');
+
